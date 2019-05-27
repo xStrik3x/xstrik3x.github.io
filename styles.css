@@ -52,7 +52,6 @@ li a:hover:not(.active) {
 }
 
 body.account {
-    font-size: 23px;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -60,7 +59,6 @@ body.account {
 }
 
 body.select {
-    font-size: 23px;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -68,21 +66,18 @@ body.select {
 }
 
 body.car {
-    font-size: 23px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 body.moto {
-    font-size: 23px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 body.excel {
-    font-size: 23px;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -90,7 +85,6 @@ body.excel {
 }
 
 body.login {
-    font-size: 23px;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -98,7 +92,6 @@ body.login {
 }
 
 body.search {
-    font-size: 23px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
