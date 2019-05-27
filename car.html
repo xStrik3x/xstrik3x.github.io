@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <ul>
+            <img class="logosize"src="./images/logo.png">
+            <li class="namecolor">License Plate Admin</li>
+            <li><a href="./search.html">ค้นหาข้อมูล</a></li>
+            <li><a href="./excel.html">เพิ่มข้อมูลโดยใช้ Excel</a></li>
+            <li><a href="./motor.html">รถจักรยานยนต์</a></li>
+            <li><a class="active" href="./car.html">รถยนต์</a></li>
+            <li><a href="./account.html">เพิ่มผู้ใช้งานแอปพลิเคชัน</a></li>
+            <li><a href="./select.html">หน้าแรก</a></li>
+        </ul>
+
+    <title>ข้อมูลรถยนต์</title>
+  </head>
+  <body class="car">
+    
+    <section id="car">
+        <div class="container">
+            <div class="row d-flex flex-column justify-content-center align-items-center">
+                <div class="col-md-8 col-lg-8">
+                    <div class="box">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12 mb-4">
+                                <h3 class="text-center">ข้อมูลรถยนต์</h3>
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <div class="form-submit">
+                                    <div class="form-group">
+                                        <label for="lplate">ป้ายทะเบียน</label>
+                                        <input class="form-control" type="text" id="lplate" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="checkbutton" class="btn btn-success">ตรวจสอบ</button> 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="code">รหัสประจำตัว</label>
+                                        <input class="form-control" type="text" id="code" value="">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="fname">ชื่อ</label>
+                                            <input class="form-control" type="text" id="fname" value="">
+                                        </div>
+                                        <div class="col">
+                                            <label for="lname">นามสกุล</label>
+                                            <input class="form-control" type="text" id="lname" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="stat">ตำแหน่งบุคลากร</label>
+                                        <!-- <input class="form-control" id="stat"> -->
+                                        <select class="form-control" id="stat" >
+                                            <option value="เลือกตำแหน่ง">เลือกตำแหน่งบุคลากร</option>
+                                            <option value="นักศึกษา">นักศึกษา</option>
+                                            <option value="อาจารย์">อาจารย์</option>
+                                            <option value="อื่น ๆ">อื่นๆ</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">เบอร์โทรศัพท์</label>
+                                        <input class="form-control" type="text" id="phone" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="departs">คณะ</label>
+                                        <select class="form-control" id="depart">
+                                            <option value="เลือกคณะ">เลือกคณะ</option>
+                                            <option value="คณะการสร้างเจ้าของธุรกิจฯ">คณะการสร้างเจ้าของธุรกิจฯ</option>
+                                            <option value="คณะดิจิทัลมีเดียฯ">คณะดิจิทัลมีเดียฯ</option>
+                                            <option value="คณะนิติศาสตร์">คณะนิติศาสตร์</option>
+                                            <option value="คณะนิเทศศาสตร์">คณะนิเทศศาสตร์</option>
+                                            <option value="คณะบริหารธุรกิจ">คณะบริหารธุรกิจ</option>
+                                            <option value="คณะมนุษยศาสตร์ฯ">คณะมนุษยศาสตร์ฯ</option>
+                                            <option value="คณะวิศวกรรมศาสตร์">คณะวิศวกรรมศาสตร์</option>
+                                            <option value="คณะศิลปกรรมศาสตร์">คณะศิลปกรรมศาสตร์</option>
+                                            <option value="คณะสถาปัตยกรรมศาสตร์">คณะสถาปัตยกรรมศาสตร์</option>
+                                            <option value="คณะเทคโนโลยีสารสนเทศฯ">คณะเทคโนโลยีสารสนเทศฯ</option>
+                                            <option value="คณะเศรษฐศาสตร์ฯ">คณะเศรษฐศาสตร์ฯ</option>
+                                            <option value="หลักสูตรนานาชาติ">หลักสูตรนานาชาติ</option>
+                                            <option value="หลักสูตรนานาชาติจีน">หลักสูตรนานาชาติจีน</option>
+                                            <option value="ไม่มี">ไม่มี</option>                                                      
+                                            </select>
+                                    </div>
+                                    <div class="row pt-3">
+                                        <div class="col">
+                                            <button id="addbutton" class="btn btn-warning btn-block">เพิ่ม</button>
+                                        </div>
+                                        <div class="col">
+                                            <button id="updatebutton" class="btn btn-warning btn-block">อัปเดต</button>   
+                                        </div>
+                                        <div class="col">
+                                            <button id="deletebutton" class="btn btn-warning btn-block">ลบ</button>  
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./car.js"></script>
+  </body>
+</html>

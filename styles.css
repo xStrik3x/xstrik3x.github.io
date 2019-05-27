@@ -1,0 +1,105 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+li {
+    font-size: 18px;
+    float: right;
+}
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover:not(.active) {
+    background-color: #ffc107;
+}
+  
+.active {
+    background-color: #ffc107;
+}
+
+.logosize {
+    height: 100 px;
+    width: 150px;
+    float: left;
+    padding: 14px 16px;
+}
+
+.namecolor{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.demoimg{
+    height: 200px;
+    width: 900px
+}
+
+body.account {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body.select {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body.car {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body.moto {
+    font-size: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body.excel {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body.login {
+    height: 100vh;
+    background-color: #F6D8A3;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body.search {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.box {
+    padding: 3rem;
+    margin: 3rem;
+    background-color: #5A5A5A;
+    color: #FFFFFF;
+}
