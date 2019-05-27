@@ -22,10 +22,12 @@ li a {
   
 li a:hover:not(.active) {
     background-color: #ffc107;
+    color: black;
 }
   
 .active {
     background-color: #ffc107;
+    color: black;
 }
 
 .logosize {
