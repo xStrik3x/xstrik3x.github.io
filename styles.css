@@ -1,3 +1,6 @@
+body {
+    font-family: 'Prompt', sans-serif !important;
+}
 
 ul {
     list-style-type: none;
@@ -103,3 +106,4 @@ body.search {
     background-color: #5A5A5A;
     color: #FFFFFF;
 }
+
