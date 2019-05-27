@@ -12,6 +12,23 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const loginbutton = document.getElementById("loginbutton")
+const enteruser = document.getElementById("user")
+const enterpass = document.getElementById("pass")
+
+
+enterpass.addEventListener("keyup", function(e){
+    if (e.keyCode === 13){
+        event.preventDefault();
+        loginbutton.click();
+    }
+})
+
+enteruser.addEventListener("keyup", function(e){
+    if (e.keyCode === 13){
+        event.preventDefault();
+        loginbutton.click();
+    }
+})
 
 loginbutton.addEventListener("click", function(){
     var user = document.getElementById("user").value;
@@ -31,7 +48,5 @@ loginbutton.addEventListener("click", function(){
         });
     }
 })
-
-
 
     

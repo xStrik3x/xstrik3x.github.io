@@ -16,8 +16,17 @@ const db = firebase.firestore()
 var table = document.getElementById("myTable")
 
 const searchbutton = document.getElementById("searchbutton")
+const entersearch = document.getElementById("search")
 var result = [{}]
 var allcnt = 0
+
+entersearch.addEventListener("keyup", function(e){
+    if (e.keyCode === 13){
+        event.preventDefault();
+        searchbutton.click();
+    }
+})
+
 
 searchbutton.addEventListener("click", function(){
     var chk1 = document.getElementById("type1").checked
@@ -110,58 +119,11 @@ searchbutton.addEventListener("click", function(){
                     cellDepart.innerHTML = fordoc.data().depart
                 }
 
-                // if  (fordoc.data().no.includes(search) == true){
-                //     var row = table.insertRow(1)
-                //     var cellPlate = row.insertCell(0)
-                //     var cellCode = row.insertCell(1)
-                //     var cellFname = row.insertCell(2)
-                //     var cellLname = row.insertCell(3)
-                //     var cellPostition = row.insertCell(4)
-                //     var cellPhone = row.insertCell(5)
-                //     var cellDepart = row.insertCell(6)
-
-                //     cellPlate.innerHTML = fordoc.id
-                //     cellCode.innerHTML = fordoc.data().no
-                //     cellFname.innerHTML = fordoc.data().fname
-                //     cellLname.innerHTML = fordoc.data().lname
-                //     cellPostition.innerHTML = fordoc.data().state
-                //     cellPhone.innerHTML = fordoc.data().number
-                //     cellDepart.innerHTML = fordoc.data().depart
-                // }
+               
             })
 
-            // console.log(fordoc[0].data().state.includes(''))
-            // console.log(docid)
-            // console.log(alldoc)
-            // console.log(docid.length)
-            
-            })
+        })
 
-            // db.collection(type).where("fname", "==", search).get().then(function(querySnapshot){
-            //     var cnt = 1
-            //     querySnapshot.forEach(function(doc) {
-            //         var row = table.insertRow(cnt)
-            //         var cellPlate = row.insertCell(0)
-            //         var cellCode = row.insertCell(1)
-            //         var cellFname = row.insertCell(2)
-            //         var cellLname = row.insertCell(3)
-            //         var cellPostition = row.insertCell(4)
-            //         var cellPhone = row.insertCell(5)
-            //         var cellDepart = row.insertCell(6)
-
-            //         cellPlate.innerHTML = doc.id
-            //         cellCode.innerHTML = doc.data().no
-            //         cellFname.innerHTML = doc.data().fname
-            //         cellLname.innerHTML = doc.data().lname
-            //         cellPostition.innerHTML = doc.data().state
-            //         cellPhone.innerHTML = doc.data().number
-            //         cellDepart.innerHTML = doc.data().depart
-
-            //         cnt++
-            //     })
-            // }).catch(function(error) {
-            //     console.log("Error getting documents: ", error);
-            // });
             
             db.collection(type).where("no", "==", search).get().then(function(querySnapshot){
                 var cnt = 0
@@ -186,32 +148,6 @@ searchbutton.addEventListener("click", function(){
             }).catch(function(error) {
                 console.log("Error getting documents: ", error);
             });
-            
-            // db.collection(type).where("state", "==", search).get().then(function(querySnapshot){
-            //     var cnt = 1
-            //     querySnapshot.forEach(function(doc) {
-            //         var row = table.insertRow(cnt)
-            //         var cellPlate = row.insertCell(0)
-            //         var cellCode = row.insertCell(1)
-            //         var cellFname = row.insertCell(2)
-            //         var cellLname = row.insertCell(3)
-            //         var cellPostition = row.insertCell(4)
-            //         var cellPhone = row.insertCell(5)
-            //         var cellDepart = row.insertCell(6)
-
-            //         cellPlate.innerHTML = doc.id
-            //         cellCode.innerHTML = doc.data().no
-            //         cellFname.innerHTML = doc.data().fname
-            //         cellLname.innerHTML = doc.data().lname
-            //         cellPostition.innerHTML = doc.data().state
-            //         cellPhone.innerHTML = doc.data().number
-            //         cellDepart.innerHTML = doc.data().depart
-
-            //         cnt++
-            //     })
-            // }).catch(function(error) {
-            //     console.log("Error getting documents: ", error);
-            // });
         } else {
             alert("โปรดกรอกข้อมูล")
         }
